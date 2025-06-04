@@ -6,14 +6,14 @@
     <description>Recent content in Projects on Jayasri Pudota</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate><atom:link href="https://jpudota.github.io/Portfolio/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jpudota.github.io/Portfolio/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Property Analysis</title>
       <link>https://jpudota.github.io/Portfolio/post/property_analysis/</link>
       
       
       <guid>https://jpudota.github.io/Portfolio/post/property_analysis/</guid>
-      <description>.</description>
+      <description>As part of my internship, I developed a Property Analysis Project that evaluates key factors influencing real estate decisions across cities, states, and suburbs. The project features comprehensive tables displaying house values, rental prices, school quality, crime rates, and transportation accessibility. By aggregating and analyzing this data, the tool provides valuable insights for homebuyers, investors, and urban planners. I designed an intuitive interface to present complex datasets clearly, enabling users to make informed decisions.</description>
     </item>
     
     <item>
@@ -22,17 +22,16 @@
       
       
       <guid>https://jpudota.github.io/Portfolio/post/bechdel_test/</guid>
-      <description>The Bechdel Test is a quick way to check how women are shown in movies. It asks: Are there at least two named female characters who talk to each other about something besides a guy? It came from Alison Bechdel’s 1985 comic strip "Dykes to Watch Out For" and really makes you think about whether women get meaningful roles on screen.
-This was part of my personal project which I worked on where it analysis for gender disparity in Hollywood.</description>
+      <description>As a personal passion project, I created a Bechdel Test tool to assess gender representation in films based on the Bechdel Test criteria. It evaluates whether movies include at least two named female characters who discuss something other than a man. The project features data visualizations showcasing trends in gender portrayal across genres and time periods. With an intuitive interface, it enables users to explore insights into cinematic gender dynamics.</description>
     </item>
     
     <item>
       <title>IPL Dashboard</title>
       <link>https://jpudota.github.io/Portfolio/post/ipl_dashboard/</link>
-      
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://jpudota.github.io/Portfolio/post/ipl_dashboard/</guid>
-      <description>This project creates an interactive platform to visualize and analyze IPL data, including batting/bowling stats, orange/purple cap holders, tournament 4's/6's, match outcomes etc,.</description>
+      <description>Driven by my husband's passion for cricket, I created an IPL Dashboard to showcase key tournament statistics and insights. The project features detailed visualizations of batting and bowling stats, orange and purple cap holders, and tournament 4s/6s, among other metrics. Built with a focus on user-friendly design, it allows fans to explore team and player performance interactively. I leveraged data analysis and visualization tools to transform raw cricket data into engaging insights. This personal project strengthened my skills in data processing, dashboard development, and sports analytics.</description>
     </item>
     
   </channel>
