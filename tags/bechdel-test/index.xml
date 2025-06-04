@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bechdel Test on Jayasri Pudota</title>
+    <link>https://jpudota.github.io/Portfolio/tags/bechdel-test/</link>
+    <description>Recent content in Bechdel Test on Jayasri Pudota</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jpudota.github.io/Portfolio/tags/bechdel-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bechdel Test</title>
+      <link>https://jpudota.github.io/Portfolio/post/bechdel_test/</link>
+      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://jpudota.github.io/Portfolio/post/bechdel_test/</guid>
+      <description>As a personal passion project, I created a Bechdel Test tool to assess gender representation in films based on the Bechdel Test criteria. It evaluates whether movies include at least two named female characters who discuss something other than a man. The project features data visualizations showcasing trends in gender portrayal across genres and time periods. With an intuitive interface, it enables users to explore insights into cinematic gender dynamics.</description>
+    </item>
+    
+  </channel>
+</rss>
