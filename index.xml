@@ -6,44 +6,53 @@
     <description>Recent content in Data Analytics Portfolio on Jayasri Pudota</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://jpudota.github.io/Portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jpudota.github.io/Portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Amazon Price Tracker</title>
-      <link>https://jpudota.github.io/Portfolio/post/amazon_price_scrapper/</link>
-      <pubDate>Thu, 26 Nov 2020 00:00:00 +0000</pubDate>
+      <title>Property Analysis</title>
+      <link>https://jpudota.github.io/Portfolio/post/property_analysis/</link>
       
-      <guid>https://jpudota.github.io/Portfolio/post/amazon_price_scrapper/</guid>
-      <description>This was part of a personal project where a python price scrapper was built in order to track prices for specific items on amazon and then send out email alerts. The way the model works is you add a link to the amazon product and the price you&amp;rsquo;re willing to buy the product at (Target Price) and then you can run the script and it will refresh the script every 24 hours and check the price for the product, as soon as the price of the product reaches your target price the scrapper will send you an email alert.</description>
+      
+      <guid>https://jpudota.github.io/Portfolio/post/property_analysis/</guid>
+      <description>As part of my internship, I developed a Property Analysis Project that evaluates key factors influencing real estate decisions across cities, states, and suburbs. The project features comprehensive tables displaying house values, rental prices, school quality, crime rates, and transportation accessibility. By aggregating and analyzing this data, the tool provides valuable insights for homebuyers, investors, and urban planners. I designed an intuitive interface to present complex datasets clearly, enabling users to make informed decisions.</description>
     </item>
     
     <item>
-      <title>Yahoo Finance Web Scrapper</title>
-      <link>https://jpudota.github.io/Portfolio/post/yahoo_fin_web_scrapper/</link>
-      <pubDate>Fri, 30 Oct 2020 00:00:00 +0000</pubDate>
+      <title>Bechdel Test</title>
+      <link>https://jpudota.github.io/Portfolio/post/bechdel_test/</link>
+     
       
-      <guid>https://jpudota.github.io/Portfolio/post/yahoo_fin_web_scrapper/</guid>
-      <description>This project was part of my Youtube channel where I build a yahoo finance web-scrapper to get stock prices from yahoo finance, This project was inspired as I was actively investing in the stock market and needed to automate the process to get and analyse data faster for various companies. The yahoo fin package help solves that huddle as it allow to automate the process through a script written in python.</description>
+      <guid>https://jpudota.github.io/Portfolio/post/bechdel_test/</guid>
+      <description>As a personal passion project, I created a Bechdel Test tool to assess gender representation in films based on the Bechdel Test criteria. It evaluates whether movies include at least two named female characters who discuss something other than a man. The project features data visualizations showcasing trends in gender portrayal across genres and time periods. With an intuitive interface, it enables users to explore insights into cinematic gender dynamics.</description>
     </item>
     
     <item>
-      <title>Movie Recommendation Systems</title>
-      <link>https://jpudota.github.io/Portfolio/post/movie_recommendation/</link>
-      <pubDate>Mon, 26 Oct 2020 00:00:00 +0000</pubDate>
+      <title>IPL Dashboard</title>
+      <link>https://jpudota.github.io/Portfolio/post/ipl_dashboard/</link>
       
-      <guid>https://jpudota.github.io/Portfolio/post/movie_recommendation/</guid>
-      <description>This is a project I did for my masters research paper, where I build a recommendation system for a movies dataset.
-The main reason behind carrying out this research was to understand how big tech companies recommend items to its users, companies like Amazon, Netflix, Spotify and many more use recommendation systems to recommend items to its users on a daily basis.
-Overview Recommendation system work on the principal of &amp;ldquo;homophily&amp;rdquo; which means similar users prefer similar items, this means that companies are able to accurately predict which users is most likely to buy something / watch something.</description>
+      
+      <guid>https://jpudota.github.io/Portfolio/post/ipl_dashboard/</guid>
+      <description>Driven by my husband's passion for cricket, I created an IPL Dashboard to showcase key tournament statistics and insights. The project features detailed visualizations of batting and bowling stats, orange and purple cap holders, and tournament 4s/6s, among other metrics. Built with a focus on user-friendly design, it allows fans to explore team and player performance interactively. I leveraged data analysis and visualization tools to transform raw cricket data into engaging insights. This personal project strengthened my skills in data processing, dashboard development, and sports analytics.</description>
     </item>
+
+	  <item>
+		  <title>Call center Dashboard</title>
+		  <link>https://jpudota.github.io/Portfolio/post/call_center/</link>
+
+
+		  <guid>https://jpudota.github.io/Portfolio/post/call_center/</guid>
+		  <description>Designed and developed a comprehensive Excel-based dashboard to analyze key call centre performance metrics. The dashboard features a calls trend line graph to monitor activity over time, a weekday trend bar chart to highlight peak operational days, and a dynamic chart visualizing calls and revenue by representative. Additional insights include calls segmented by customer demographics, a rating distribution histogram to evaluate customer satisfaction, and a detailed customer revenue analysis table enhanced with conditional formatting and data bars. This project showcases strong proficiency in Excel for data analysis, visualization, and interactive reporting.</description>
+	  </item>
     
     <item>
       <title>Contact </title>
       <link>https://jpudota.github.io/Portfolio/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       
       <guid>https://jpudota.github.io/Portfolio/contact/</guid>
-      <description>Follow me on these Social Media Platforms.
-   Platforms      Youtube : https://www.youtube.com/channel/UCg_snN6MEkT6wPRczCup7UQ   Linkedin : https://uk.linkedin.com/in/ronitmalik   Medium : https://ronit-malik.medium.com/   Github : https://github.com/RonitMalik    </description>
+      <description>
+		  Follow me on these Social Media Platforms.
+		  Platforms      Linkedin : https://www.linkedin.com/in/jayasri-pudota     Github : https://github.com/JPudota
+	  </description>
     </item>
     
   </channel>
