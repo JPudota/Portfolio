@@ -160,14 +160,14 @@
   </a>
 
   <header>
-    <h1>Property Analysis - Advanced Sprint 2</h1>
-    <p>To build a suite of interactive SSRS reports that allow users to analyze real estate and community data by selecting a specific state, city, and suburb, supporting data-driven decision-making in property investment and community planning.</p>
+    <h1>Property Analysis - Advanced Sprint 4</h1>
+    <p>To build an integrated analytical solution that empowers users to explore suburb-level insights across House Value, Rental Trends, School Quality, Transport Accessibility, and Crime Rates, while enabling seamless drill-through to SSRS paginated reports for detailed, printable analysis.</p>
   </header>
 
   <div class="carousel-container" style="max-width: 700px; margin: 2rem auto; position: relative;">
-    <img class="carousel-image" src="../assets/images/advanced2/RentalValueWP.png"
+    <img class="carousel-image" src="../assets/images/advanced4/dynamic_ssrs.png"
       style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
-    <p class="carousel-caption" style="text-align: center; margin-top: 10px;">RentalValue report executed on SSRS Web Portal with location filters and rental highlights</p>
+    <p class="carousel-caption" style="text-align: center; margin-top: 10px;">Dynamic Drill-Through from Power BI to SSRS Paginated Reports</p>
 
     <button class="carousel-btn left" onclick="changeSlide(-1)"
       style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 2rem; cursor: pointer;">❮</button>
@@ -178,9 +178,10 @@
   <section class="project-detail" style="padding: 2rem;">
     <h2>Project Overview</h2>
     <ul style="list-style-type: disc; padding-left: 40px;">
-      <li>This project demonstrates the use of SQL Server Reporting Services (SSRS) to develop dynamic, parameter-driven reports from a dimensional Data Warehouse model. The solution is designed to help users explore key real estate metrics such as property values, rental trends, transport access, school zones, and crime rates at varying geographic levels (state, city, and suburb).</li>
-      <li><strong>Tools Used:</strong> SQL Server | SSRS (SQL Server Reporting Services) | SSMS</li>
-      <li><strong>Techniques:</strong> Cascading parameters (State → City → Suburb), Conditional formatting, indexes</li>
+      <li>This project focused on designing and developing a comprehensive suburb insights dashboard in Power BI using a centralized Data Warehouse model. The solution not only presents interactive and intuitive data visualizations across multiple dimensions but also connects Power BI pages with corresponding SSRS paginated reports hosted on the SSRS Web Portal. This enables users to deep-dive into data for specific suburbs by simply clicking dynamic hyperlinks embedded within the Power BI interface.</li>
+      <li>The report pages (House Value, Rental Value, School, Transport, and Crime) feature dynamic links that pass state, city, and suburb parameters directly into SSRS reports, allowing users to view tailored, printable reports for informed decision-making.</li>
+      <li><strong>Tools Used:</strong> Power BI Desktop | SQL Server Reporting Services (SSRS) | SSMS</li>
+      <li><strong>Techniques:</strong> DAX, Star Schema / Dimensional Modeling, Parameterized URLs, SSRS Web Portal</li>
     </ul>
 <br>
 
@@ -188,12 +189,13 @@
 <div style="padding-left: 40px;">
   
   <ul>
-    <li>Connected SSRS to the Data Warehouse using SQL Server data source.</li>
-    <li>Wrote optimized T-SQL queries for data retrieval</li>
-    <li>Developed five separate SSRS reports with tailored layouts (table format)</li>
-    <li>Implemented cascading parameters to enable intuitive user filtering.</li>
-    <li>Applied styling and logic-based formatting to highlight key metrics.</li>
-    <li>Validated data and improved load time with indexing strategy.</li>
+    <li>Designed a dimensional data model supporting suburb-based analytics.</li>
+    <li>Developed ETL pipelines using SSIS to extract, transform, and load data into SQL Server.</li>
+    <li>Created interactive dashboards in Power BI for House Value, Rental Value, School, Transport, and Crime.</li>
+    <li>Built SSRS paginated reports tailored to suburb-level details and deployed them to the SSRS Web Portal.</li>
+    <li>Integrated dynamic URL-based drill-through from Power BI to SSRS reports using DAX.</li>
+    <li>Used tables visuals to embed hyperlinks that passed state, city, and suburb as parameters to SSRS reports.</li>
+    <li>Ensured consistency and performance across both platforms by optimizing datasets and visuals.</li>
     
     </ul>
   <br>
@@ -205,7 +207,7 @@
   <ul>
 
     <li><code>DimSuburb</code>, <code>DimSchool</code>, <code>DimTransport</code>,
-    <code>FactCrime</code>, <code>FactHouseValue</code>, <code>FactRentalValue</code></li>
+    <code>FactCrime</code>, <code>FactHouseValue</code>, <code>FactRentalValue</code>, <code>FactlessFact_School</code>, <code>FactlessFact_Transport</code></li>
     
     </ul>
   <br>
@@ -215,11 +217,11 @@
 
     <h2>Key Deliverables</h2>
     <ul style="padding-left: 40px;">
-      <li>House Value Report – Displays average house values by city with conditional formatting.</li>
-      <li>Rental Value Report – Shows rental trends with visual highlights for high-rent areas.</li>
-      <li>Transport Stations Report – Lists local public transport options per state, city, suburb</li>
-      <li>School Locator Report – Identifies nearby schools within the selected location.</li>
-      <li>Crime Summary Report – Summarizes recorded crime recorded incidents at the [offence category] level</li>
+        <li>Interactive suburb analytics dashboard in Power BI.</li>
+        <li>SSRS paginated reports with parameter-driven filtering.</li>
+        <li>Hyperlink integration for seamless navigation between Power BI and SSRS.</li>
+        <li>Complete end-to-end data flow from ETL to reporting.</li>
+        <li>Parameterized user experience tailored to suburb-specific data.</li>
     </ul>
 
     <br>
@@ -257,30 +259,25 @@
 
   <script>
     const images = [
-      "../assets/images/advanced2/HouseValue.png",
-      "../assets/images/advanced2/HouseValueWP.png",
-   "../assets/images/advanced2/RentalValue.png",
-      "../assets/images/advanced2/RentalValueWP.png",
-   "../assets/images/advanced2/Schools.png",
-      "../assets/images/advanced2/SchoolsWP.png",
-         "../assets/images/advanced2/CrimeReport.png",
-      "../assets/images/advanced2/CrimeReportWP.png",
-         "../assets/images/advanced2/Transport.png",
-      "../assets/images/advanced2/TransportWP.png"
+        "../assets/images/advanced4/dynamic_ssrs.png",
+        "../assets/images/advanced3/HouseValue.png",
+        "../assets/images/advanced3/RentalAmount.png",
+        "../assets/images/advanced3/Crime.png",
+        "../assets/images/advanced3/School.png",
+        "../assets/images/advanced3/Transport.png",
+        "../assets/images/advanced3/modelview_pbi.png"
+        
       
 
     ];
     const captions = [
-  "SSRS Design View: HouseValue report with parameters and conditional formatting.",
-  "HouseValue report executed on SSRS Web Portal with location filters and value highlights.",
-  "SSRS Design View: RentalValue report with cascading filters and value highlights.",
-  "RentalValue report executed on SSRS Web Portal with location filters and rental highlights.",
-  "SSRS Design View: Schools report filtered by state, city, and suburb.",
-  "Schools report executed on SSRS Web Portal showing filtered nearby schools.",
-  "SSRS Design View: Crime report summarizing incidents by [offence category].",
-  "Crime report executed on SSRS Web Portal summarizing incidents by [offence category].",
-  "SSRS Design View: Transport report with state, city, and suburb filters.",
-  "Transport report executed on SSRS Web Portal listing local stations by location."
+  "Dynamic Drill-Through from Power BI to SSRS Paginated Reports.",
+  "House Price Trends by Suburb, City, State.",
+  "Rental Value Analysis – Distribution & Suburb-Level Insights.",
+  "Crime Incident Analysis – Recorded Cases by Location.",
+  "School Analysis – School Types and Distribution.",
+  "Transport Access Analysis – Stops by Suburb, City, and State.",
+  "Power BI Data Model – Star Schema Linking Facts and Dimensions."
 ];
     
   

@@ -160,14 +160,14 @@
   </a>
 
   <header>
-    <h1>Property Analysis - Sprint 1</h1>
-    <p>Designed and implemented a structured ETL pipeline using SSIS, with multi-layered data loading and transformation, following Snowflake schema principles.</p>
+    <h1>Property Analysis - Advanced Sprint 3</h1>
+    <p>To develop an interactive Power BI dashboard that enables stakeholders to analyze and compare real estate and infrastructure metrics—such as house prices, rental values, school availability, transport accessibility, and crime incidents—across suburbs, cities, and states. The goal is to support data-driven decision-making for property investors, city planners, and home buyers.</p>
   </header>
 
   <div class="carousel-container" style="max-width: 700px; margin: 2rem auto; position: relative;">
-    <img class="carousel-image" src="../assets/images/competetion1/ETL_Pipeline.png"
+    <img class="carousel-image" src="../assets/images/advanced3/Summary.png"
       style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
-    <p class="carousel-caption" style="text-align: center; margin-top: 10px;">End-to-End SSIS ETL Pipeline from raw source to Snowflake schema.</p>
+    <p class="carousel-caption" style="text-align: center; margin-top: 10px;">Summary Dashboard – Property Analysis Dashboard Overview</p>
 
     <button class="carousel-btn left" onclick="changeSlide(-1)"
       style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 2rem; cursor: pointer;">❮</button>
@@ -178,22 +178,38 @@
   <section class="project-detail" style="padding: 2rem;">
     <h2>Project Overview</h2>
     <ul style="list-style-type: disc; padding-left: 40px;">
-      <li>To design and implement a structured ETL pipeline using SSIS that transforms raw property and school data into a Snowflake-modeled data warehouse, enabling accurate and efficient reporting.</li>
-      <li><strong>Tools Used:</strong> SQL Server | SSIS | Snowflake Schema</li>
+      <li>This project delivers a comprehensive multi-page Power BI dashboard using data imported from a structured data warehouse. Each page focuses on a specific domain—House Value, Rental, Schools, Transport, and Crime—with tailored visuals and KPIs. A centralized Summary page provides cross-domain insights with drill-through to detail pages, while an Overview (Home) page enables image-based navigation.</li>
+      <li>By integrating multiple datasets and dimension tables, this report provides an end-to-end real estate intelligence solution at suburb-level granularity.</li>
+      <li><strong>Tools Used:</strong> Power BI Desktop | SQL Server | DAX (Data Analysis Expressions) | Power Query</li>
+      <li><strong>Techniques:</strong> Dimensional Modeling, Drillthrough Navigation, KPI Cards, Hierarchical Filtering, Top N & Distribution Analysis, Bucketization, Highlighting Gaps, Custom Color Palette</li>
     </ul>
 <br>
 
-<h2>📈 What I Did</h2><br>
+<h2>What I Did</h2>
 <div style="padding-left: 40px;">
   
   <ul>
-    <li>Extracted raw Excel files and loaded them into load_* staging tables.</li>
-    <li>Performed initial transformations using load_* as source, and loaded results into intermediate stage_* tables.</li>
-    <li>Applied business rules using Derived Columns (e.g., property value categorization).</li>
-    <li>Used Lookup transformations to fetch foreign keys from dimension tables.</li>
-    <li>Final cleaned data was loaded into Dim_* and Fact_* tables structured in a Snowflake schema.</li>
-    <li>Fact table: <code>FactProperty</code></li>
-    <li>Dimension tables: <code>DimSuburb</code>, <code>DimSchool</code>, <code>DimDate</code></li>
+    <li>Imported and modeled data from SQL-based data warehouse.</li>
+    <li>Designed page-level analysis for each domain (House, Rental, Crime, School, Transport).</li>
+    <li>Created custom DAX measures for KPI cards.</li>
+    <li>Built dynamic visuals by suburb, city, and state.</li>
+    <li>Implemented category-based distribution charts and Top N comparisons.</li>
+    <li>Designed a Summary page for high-level insights with drill-through to detail pages.</li>
+    <li>Created a Home (Overview) page using visual tiles for intuitive navigation.</li>
+    <li>Applied a cohesive custom color theme to enhance user experience and brand consistency.</li>
+    
+    </ul>
+  <br>
+
+</div>
+
+<h2>Tables Used</h2>
+<div style="padding-left: 40px;">
+  <ul>
+
+    <li><code>DimSuburb</code>, <code>DimSchool</code>, <code>DimTransport</code>,
+    <code>FactCrime</code>, <code>FactHouseValue</code>, <code>FactRentalValue</code>, <code>FactlessFact_School</code>, <code>FactlessFact_Transport</code></li>
+    
     </ul>
   <br>
 
@@ -202,18 +218,23 @@
 
     <h2>Key Deliverables</h2>
     <ul style="padding-left: 40px;">
-      <li>Multi-layered SSIS ETL pipeline (Load → Stage → Dim/Fact).</li>
-      <li>Composite primary key creation at staging level (Postcode + Suburb) for uniqueness.</li>
-      <li>Property categorization using Derived Columns and Conditional Splits.</li>
-      <li>Snowflake schema with normalized dimensions and lookup-driven relationships.</li>
-      <li>Clean, query-ready data warehouse prepared for BI consumption.</li>
+        <li>Designed 5 dedicated analysis pages for House Value, Rental Value, Crime, Schools, and Transport</li>
+        <li>Implemented KPI cards showing Min, Max, Avg, and Count metrics for each domain.</li>
+        <li>Created interactive slicers for State, City, and Suburb filtering across all pages.</li>
+        <li>Developed Top 5 visualizations for suburbs by average value, crime incidents, school count, and transport stops.</li>
+        <li>Built distribution charts for House Value and Rental Amount categories.</li>
+        <li>Highlighted data gaps such as suburbs with no schools or transport stops.</li>
+        <li>Built a Summary page consolidating KPIs and key visuals across domains.</li>
+        <li>Enabled drill-through navigation from Summary to individual analysis pages using suburb.</li>
+        <li>Designed a Home (Overview) page with clickable image tiles for intuitive navigation.</li>
+        <li>Applied a custom color palette consistent with all visuals for a polished and cohesive dashboard.</li>
     </ul>
 
     <br>
 
     <h2>Links</h2>
     <ul style="padding-left: 40px;">
-      <li><a href="https://github.com/JPudota/property_analysis" target="_blank">GitHub Repo</a></li>
+      <li><a href="https://github.com/JPudota/Australia_Property_Analysis" target="_blank">GitHub Repo</a></li>
     </ul>
 
     <br><br>
@@ -244,16 +265,25 @@
 
   <script>
     const images = [
-      "../assets/images/competetion1/ETL_Pipeline.png",
-      "../assets/images/competetion1/Successful_ETL_Pipeline.png",
-      "../assets/images/competetion1/DBdiagram.png"
+        "../assets/images/advanced3/Summary.png",
+        "../assets/images/advanced3/HouseValue.png",
+        "../assets/images/advanced3/RentalAmount.png",
+        "../assets/images/advanced3/Crime.png",
+        "../assets/images/advanced3/School.png",
+        "../assets/images/advanced3/Transport.png",
+        "../assets/images/advanced3/modelview_pbi.png"
+        
       
 
     ];
     const captions = [
-  "End-to-End SSIS ETL Pipeline from raw source to Snowflake schema.",
-  "SSIS ETL pipeline executed successfully, validating all data transfers from raw files to Dim and Fact tables.",
-  "Snowflake schema design illustrating relationships between Fact and Dimension tables."
+  "Summary Dashboard – Property Analysis Dashboard Overview.",
+  "House Price Trends by Suburb, City, State.",
+  "Rental Value Analysis – Distribution & Suburb-Level Insights.",
+  "Crime Incident Analysis – Recorded Cases by Location.",
+  "School Analysis – School Types and Distribution.",
+  "Transport Access Analysis – Stops by Suburb, City, and State.",
+  "Power BI Data Model – Star Schema Linking Facts and Dimensions."
 ];
     
   
