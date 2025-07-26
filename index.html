@@ -10,7 +10,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="./assets/images/data_icon.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/logo.svg" type="image/x-icon">
 
   <!--
     - custom css link
@@ -23,6 +23,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <div id="thanks-message">
+  Thanks for visiting! 👋
+</div>
+<style>
+  #thanks-message {
+    text-align: center;
+    font-size: 18px;
+    color: gold;
+    margin-top: 20px;
+    font-weight: 500;
+  }
+</style>
+
+
 </head>
 
 <body>
@@ -174,9 +188,9 @@
             <button class="navbar-link" data-nav-link>Projects</button>
           </li>
 
-          <!-- <li class="navbar-item">
+          <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Blog</button>
-          </li> -->
+          </li>
 
 
         </ul>
@@ -777,10 +791,10 @@ and MVP Studio.
           <ul class="blog-posts-list">
 
             <li class="blog-post-item">
-              <a href="blogs/how_i_am_building_portfolio.html">
+              <a href="blogs/building_portfolio.html">
 
                 <figure class="blog-banner-box">
-                  <img src="./assets/images/portfolio_blog1.png" alt="How I Built My Portfolio Website" loading="lazy">
+                  <img src="./assets/images/portfolio_blog1.png" alt="BUilding Portfolio Website" loading="lazy">
                 </figure>
 
                 <div class="blog-content">
@@ -788,13 +802,13 @@ and MVP Studio.
                   <div class="blog-meta">
 
 
-                    <time datetime="2025-04-01">April 1, 2025</time>
+                    <time datetime="2025-03-05">March 25, 2025</time>
                   </div>
 
-                  <h3 class="h3 blog-item-title">How I’m Building My Data Portfolio Website</h3>
+                  <h3 class="h3 blog-item-title">Back in Action: Building My Data Portfolio Website</h3>
 
                   <p class="blog-text">
-                    When I decided to pursue a career as a Data Analyst ......
+                    When I decided to pursue my career as a Data Analyst ......
                   </p>
 
                 </div>
@@ -832,6 +846,43 @@ and MVP Studio.
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<div id="visitor-counter">
+  <img 
+    src="https://visitor-badge.laobi.icu/badge?page_id=jpudota.Portfolio&left_color=gray&right_color=gold&left_text=Visitors" 
+    alt="Visitor Count" 
+  />
+</div>
+
+<style>
+  #visitor-counter {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1f1f1f;
+    padding: 6px 12px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+    z-index: 1000;
+    font-family: inherit; /* Match your site font */
+    color: gold;
+    font-size: 14px;
+  }
+
+  #visitor-counter img {
+    height: 24px;
+    vertical-align: middle;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    #visitor-counter {
+      bottom: 10px;
+      right: 10px;
+      padding: 5px 8px;
+    }
+  }
+</style>
 
 </body>
 
