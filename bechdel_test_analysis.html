@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Project 3</h2>
+					<h3>Bechdel Test Analysis || Python</h3>
+					<p></p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+
+					<h3 class="major"></h3>
+					<h2>🎯 Objective</h4>
+						<p>To analyze gender representation in films through the lens of the Bechdel Test, and correlate
+							test outcomes
+							with key commercial and critical metrics such as revenue, genre, and IMDb ratings. The
+							analysis focuses on
+							films released between 1900 and 2015.
+						</p>
+
+						<div class="carousel-container"
+							style="max-width: 700px; margin: 2rem auto; position: relative;">
+							<img class="carousel-image" src="assets/images/bechdel_analysis/visual1.png"
+								style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
+							<p class="carousel-caption" style="text-align: center; margin-top: 10px;">Bar chart showing
+								counts of each
+								score (0 to 3)</p>
+
+							<button class="carousel-btn left" onclick="changeSlide(-1)"
+								style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❮</button>
+							<button class="carousel-btn right" onclick="changeSlide(1)"
+								style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❯</button>
+						</div>
+
+						<h3 class="major"></h3>
+						<h2>🧠 Project Overview</h2>
+
+						<p>The Bechdel Test is a simple but powerful tool used to assess the representation of women in
+							films. A
+							movie passes the test if it meets three criteria:</p>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>It has at least two named women characters,</li>
+							<li>who talk to each other,</li>
+							<li>about something other than a man.</li>
+						</ul>
+						<p>This project explores how films released between 1900 and 2015 perform on the Bechdel Test
+							and
+							investigates whether gender representation has any relationship with movie success factors
+							such as
+							revenue, budget, genre, vote count, and ratings.</p>
+
+
+						<h3 class="major"></h3>
+						<h2>Data Sources & Justification</h2><br>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>For this analysis, I opted for a smaller, well-structured movie dataset rather than the
+								full IMDb
+								datasets. While IMDb offers comprehensive coverage, its large size and highly normalized
+								format require
+								extensive preprocessing and significant computing resources.</li>
+							<li>The alternative dataset provided the necessary attributes—such as title, year, genre,
+								runtime, and
+								ratings—without the overhead. This allowed for a more efficient workflow and seamless
+								integration with
+								Bechdel Test data to focus on meaningful insights.</li>
+							<li>While the dataset only includes movies up to 2015, it was sufficient for deriving
+								meaningful insights on
+								gender representation in film.</li>
+						</ul>
+
+
+						<h3 class="major"></h3>
+						<h2>🛠️ Tools & Libraries</h2>
+
+						<code>Languages:</code> Python
+						<br>
+
+						<code>Libraries:</code> pandas, seaborn, matplotlib, plotly, plotnine, cufflinks
+						<br>
+						<code>Environment:</code> Jupyter Notebook
+						<br>
+
+						<br>
+						<h3 class="major"></h3>
+						<h2>🔗 Data Sources</h2>
+						Bechdel Test API
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Endpoint: https://bechdeltest.com/api/v1/getAllMovies</li>
+							<li>Provides metadata and Bechdel Test scores (0–3) for thousands of movies.</li>
+						</ul>
+
+						IMDb-like Dataset (Cleaned)
+
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>A structured dataset containing movies up to 2015.</li>
+							<li>Includes: imdb_id, budget, revenue, director, genres, vote_count, vote_average,
+								release_year, etc.
+							</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>🗃️ Data Preparation</h2>
+						Bechdel Dataset:
+
+						<ul style="list-style-type: disc; padding-left: 20px;">
+							<li>Loaded from API using pandas.read_json().</li>
+							<li>Renamed rating column to bt_score</li>
+							<li>Removed leading/trailing spaces from title.</li>
+							<li>Dropped movies released before 1900 (only 1 valid entry before 1900).</li>
+							<li>Reordered columns and reset index.</li>
+							<li>Created pass_test column: 1 if bt_score == 3, else 0.</li>
+						</ul>
+
+
+						IMDb Dataset:
+
+						<ul style="list-style-type: disc; padding-left: 20px;">
+							<li>Dropped irrelevant columns: keywords, runtime, cast, tagline, etc.</li>
+							<li>Split pipe-separated genres into lists.</li>
+							<li>Removed nulls and duplicates based on imdb_id.</li>
+							<li>Saved as Cleaned_movies.csv.</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>Merging Datasets</h2>
+
+						<ul style="list-style-type: disc; padding-left: 20px;">
+							<li>Normalized Bechdel imdbid by prefixing with 'tt' to match IMDb format.</li>
+							<li>Performed an inner join on imdbid (Bechdel) and imdb_id (IMDb).</li>
+							<li>Renamed and capitalized columns for clarity.</li>
+							<li>Final dataset: 11 key columns including Bt_score, Genres, Revenue, Vote_average, etc.
+							</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>📊 Visualizations & Insights</h2>
+
+						Bechdel Score Distribution
+						<ul style="margin-left: 2em;">
+
+							<li>Bar chart showing counts of each score (0 to 3).</li>
+						</ul>
+						Pass/Fail Rate
+						<ul style="margin-left: 2em;">
+							<li>Count of movies that passed vs. failed the Bechdel Test.</li>
+						</ul>
+						Movie Production Trends
+						<ul style="margin-left: 2em;">
+							<li>Scatter plot of movie counts per year (1900–2015).</li>
+							<li>Line chart showing counts by Bechdel Score across years.</li>
+						</ul>
+						Genre-Based Analysis
+						<ul style="margin-left: 2em;">
+							<li>Exploded Genres list for granular analysis.</li>
+							<li>Calculated pass rate per genre.</li>
+							<li>Interactive bubble chart:</li>
+							<ul style="margin-left: 2em;">
+								<li>X-axis: Bechdel Pass Rate</li>
+								<li>Y-axis: Average Revenue</li>
+								<li>Bubble Size: Average Votes</li>
+								<li>Color: Genre</li>
+							</ul>
+						</ul>
+
+						Profitability vs. Gender Representation
+						<ul style="margin-left: 2em;">
+							<li>iltered for non-zero budget and revenue..</li>
+							<li>Calculated Profit_percentage.</li>
+							<li>Box plot comparing profitability between passing vs. failing movies.</li>
+						</ul>
+						</ul>
+
+
+						<h3 class="major"></h3>
+						<h2>📦 Key Deliverables</h2>
+
+						<ul style="list-style-type: disc; padding-left: 20px;"></ul>
+
+						<li>Certain genres (e.g., Comedy, Drama, Romance) tend to have higher Bechdel pass
+							rates.</li>
+						<li>Movies that pass the Bechdel Test do not necessarily have higher revenue, but they
+							show comparable or
+							sometimes better profitability.</li>
+						<li>There’s been a noticeable rise in the number of Bechdel-passing movies post-2000,
+							indicating growing
+							attention to gender representation.</li>
+
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>File Structure</h2>
+						<ul style="list-style-type: disc; padding-left: 20px;">
+
+							<li><code>Cleaned_movies.csv:</code>IMDb subset with relevant movie metadata</li>
+							<li><code>bechdel_analysis.ipynb:</code>IMDb subset with relevant movie metadata</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>Next Steps / Ideas</h2>
+						<ul style="list-style-type: disc; padding-left: 20px;">
+							<li>Incorporate modern data from post-2015 IMDb datasets.</li>
+							<li>Sentiment analysis of plot descriptions (if available).</li>
+							<li>Director-level trends in passing rates.</li>
+						</ul>
+						<br><br>
+
+
+						<a href="https://github.com/JPudota/bechdel_test" class="special" target="_blank">See
+							Code
+							here!</a>
+						<a href="#" class="special">Read my Article!</a>
+
+
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!--
+    - custom js link
+  -->
+
+
+	<!--
+    - ionicon link
+  -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<script>
+    const images = [
+      "assets/images/bechdel_analysis/visual1.png",
+      "assets/images/bechdel_analysis/visual2.png",
+      "assets/images/bechdel_analysis/visual3.png",
+      "assets/images/bechdel_analysis/visual4.png",
+      "assets/images/bechdel_analysis/visual5.png",
+      "assets/images/bechdel_analysis/visual6.png"
+
+    ];
+    const captions = [
+      "Bar chart showing counts of each score (0 to 3)",
+      "Count of movies that passed vs. failed the Bechdel Test.",
+      "Scatter plot of movie counts per year",
+      "Line chart showing movies counts by Bechdel Score across years.",
+      "Interactive bubble chart that shows Bechdel pass rate for each genre",
+      "Box plot comparing profitability between passing vs. failing movies.",
+    ];
+
+
+
+		let currentIndex = 0;
+
+		function changeSlide(direction) {
+			currentIndex = (currentIndex + direction + images.length) % images.length;
+			document.querySelector(".carousel-image").src = images[currentIndex];
+			document.querySelector(".carousel-caption").textContent = captions[currentIndex];
+		}
+
+		// Ensure the first image is displayed initially
+		document.querySelector(".carousel-image").src = images[currentIndex];
+
+
+	</script>
+
+</body>
+
+</html>

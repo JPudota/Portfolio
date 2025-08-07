@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Project 2</h2>
+					<h3>Stock Market Analytics || SQL</h3>
+					<p></p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+					<h2>💼 Overview</h2>
+					<p>I worked on a project that involved writing SQL queries to extract insights from a financial
+						database combining stock data, social media
+						sentiment, influencer predictions, and user portfolios. The focus was on answering real business
+						questions that could support reporting and investment decisions.</p>
+
+					<h3 class="major"></h3>
+
+					<h2>✅ What I Built</h2>
+					<h3>🔟 Top 10 Stocks by Social Media Activity</h3>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>Identified the 10 most mentioned stocks on social media in the past 30 days.</li>
+						<li>Calculated average sentiment scores using confidence-weighted sentiment categories.</li>
+
+						<li><strong>Tech Used:</strong> CTEs, sentiment score mapping, AVG(), COUNT(), JOIN, DATEADD()
+						</li>
+						<li><Strong>Key Fields:</Strong> Stock symbol, company name, total mentions, average sentiment.
+						</li>
+					</ul>
+
+					<img src="assets/images/stock_market/query1.png" alt="Query1"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>🧠 Influencer Prediction Accuracy</h3>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>Measured how accurately influencers predicted stock direction</li>
+						<li>Compared price targets with actual 1-week returns.</li>
+						<li>Filtered for influencers with at least 10 predictions to ensure meaningful results.</li>
+
+						<li><strong>Tech Used:</strong> CASE WHEN, JOIN, HAVING, conditional aggregation</li>
+						<li><Strong>Key Fields:</Strong> Influencer name, prediction count, success count, accuracy
+							rate.</li>
+					</ul>
+
+					<img src="assets/images/stock_market/query2.png" alt="Query2"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>💻 Technology Sector Sentiment Trends</h3>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>Analyzed daily sentiment trends for tech-related stocks over the last 90 days.</li>
+						<li>Filtered sectors using keywords like 'Technology', 'Software', and 'Tech'.</li>
+						<li>Tracked average sentiment, mention volume, and number of unique stocks mentioned.</li>
+
+						<li><strong>Tech Used:</strong> String filtering (LIKE), GROUP BY, DATE casting, joins with
+							sector data</li>
+						<li><Strong>Key Fields:</Strong> Date, average sentiment score, mentions, unique stocks.</li>
+					</ul>
+
+					<img src="assets/images/stock_market/query3.png" alt="Query3"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>👥 User Portfolio Performance Analysis</h3>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>Calculated initial vs. current portfolio value for each user.</li>
+						<li>Derived return percentages and counted number of active holdings.</li>
+						<li>Included only users with at least one current stock position.</li>
+
+						<li><strong>Tech Used:</strong> COALESCE, CASE, aggregation, joins with stock price, HAVING</li>
+						<li><Strong>Key Fields:</Strong> User ID, initial and current portfolio value, return %, number
+							of holdings.
+						</li>
+					</ul>
+
+					<img src="assets/images/stock_market/query4.png" alt="Query4"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>📈 Sentiment vs. Price Movement Correlation</h3>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>Used window functions to derive next day sentiment score.</li>
+						<li>Explored the link between sentiment scores and next-day stock price changes.</li>
+						<li>Focused on stocks with at least 30 days of valid data to ensure reliability.</li>
+
+						<li><strong>Tech Used:</strong> CTEs, window functions (LEAD()), percentage change logic,
+							filtering by trading
+							days</li>
+						<li><Strong>Key Fields:</Strong> Stock symbol, average sentiment score, average next-day price
+							change %, days
+							analyzed.</li>
+					</ul>
+
+					<img src="assets/images/stock_market/query5.png" alt="Query5"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3 class="major"></h3>
+					<h2>♻️ Reusable Views</h2>
+					<p>To make reporting easier, I also created reusable views including:</p>
+
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li><strong>vw_influencer_prediction_accuracy:</strong> Summarizes influencer accuracy based on
+							1-week stock
+							return direction.</li>
+						<li><strong>vw_technology_sector_sentiment_trends:</strong> Tracks daily sentiment trends for
+							technology-related stocks.</li>
+						<li><strong>vw_user_portfolio_performance_analysis:</strong> Calculates portfolio value, return
+							%, and
+							holdings per user.</li>
+					</ul>
+
+					<br>
+					<h3 class="major"></h3>
+					<h2>🛠️ Tools & Skills</h2>
+					<ul style="list-style-type: disc; padding-left: 20px; margin-left: 2em;">
+						<li>SQL Server, Joins & Aggregation, Window Functions, Conditional Logic, Financial Metrics,
+							Data Validation
+						</li>
+					</ul>
+					<br>
+					<a href="https://github.com/JPudota/Stock-Market-Analytics" class="special" target="_blank">See Code
+						here!</a>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

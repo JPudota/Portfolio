@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	muskankashyap40@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Project 4</h2>
+					<h3>IPL Dashboard || Power BI, DAX</h3>
+					<p> </p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+
+					<h3 class="major"></h3>
+					<h2>🎯 Objective</h4>
+						<p>To create an interactive and visually engaging dashboard using Power BI that provides
+							season-wise insights
+							from IPL 2008 to 2022. The goal is to help users explore trends in team performance,
+							individual player
+							achievements, match outcomes, and tournament highlights.</p>
+
+						<div class="carousel-container"
+							style="max-width: 700px; margin: 2rem auto; position: relative;">
+							<img class="carousel-image" src="assets/images/ipl_dashboard/ipldashboard.png"
+								style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
+							<p class="carousel-caption" style="text-align: center; margin-top: 10px;">Complete Power BI dashboard
+            showcasing IPL insights from 2008 to 2022.</p>
+
+							<button class="carousel-btn left" onclick="changeSlide(-1)"
+								style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❮</button>
+							<button class="carousel-btn right" onclick="changeSlide(1)"
+								style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❯</button>
+						</div>
+
+						<h3 class="major"></h3>
+						<h2>🧠 Project Overview</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>The IPL Dashboard is designed to analyze key metrics such as title winners, player
+								performance (Orange and
+								Purple Cap holders), team stats, and toss decisions. The report enables users to select
+								specific seasons,
+								batsmen, and bowlers to gain dynamic and meaningful insights, making it ideal for fans,
+								analysts, and sports
+								decision-makers.</li>
+							<li><strong>Tools Used:</strong> Microsoft Excel | Power BI | SQL</li>
+							<li><strong>Techniques:</strong>Power BI, DAX, Slicers and Filters for Interactivity, KPI
+								Cards, Bar Charts,
+								Donut Charts, and Custom Visuals.</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>🔧 What I Did</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Imported and cleaned IPL match and ball-by-ball datasets (2008–2022).</li>
+							<li>Built calculated DAX measures for:
+								<ul style="margin-left: 2em;">
+									<li>Title, Orange Cap, and Purple Cap winners</li>
+									<li>Total 6s, 4s, and matches by season</li>
+									<li>Batting and bowling stats filterable by player</li>
+									<li>Toss decisions vs match outcomes</li>
+									<li>Wins by venue, result type, and team</li>
+								</ul>
+							</li>
+							<li>Designed filterable visuals to view batting and bowling stats by selected players.</li>
+							<li>Analyzed toss decisions vs match outcomes to calculate winning percentages.</li>
+							<li>Visualized matches won by venue, total wins per team, and result types.</li>
+							<li>Applied a clean, modern "Sporty Retro" color palette with cricket-themed icons</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>Tables Created</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+						<li><code>ipl_matches_2008_2022</code></li>
+						<li><code>ipl_ball_by_ball_2008_2022</code></li>
+						</ul>
+
+
+						<h3 class="major"></h3>
+						<h2>DAX Queries</h2>
+						<p>Implemented custom DAX measures to calculate:</p>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>Total Batter Runs – Aggregated using SUM() with string formatting.</li>
+						<li>Strike Rate – Calculated as (Runs / Balls Faced) * 100</li>
+						<li>Bowler Wickets – Total wickets delivered using conditional summing</li>
+						<li>Bowling Strike Rate & Economy – Derived from ball count and filtered run data</li>
+						<li>Matches Won by Toss Decision – Using CALCULATE() to compare toss winner vs match winner</li>
+						<li>Title Winner – Dynamic calculation based on the latest match date in the selected season
+						</li>
+						</ul>
+
+
+						<p>
+							<a href="#" id="toggleDAXBtn"
+								style="color: #007acc; text-decoration: underline; cursor: pointer;">
+								Click here to view complete DAX Queries ▼
+							</a>
+						</p>
+
+						<pre id="daxQueries"
+							style="display:none; margin-top: 10px; background-color: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; font-family: Consolas, monospace; font-size: 14px;">
+-- Batter Runs
+Batter Runs = CONCATENATE(SUM(ipl_ball_by_ball_2008_2022[batsman_run]), " Runs")
+
+-- Bowler Wickets
+Bowler Wickets = CONCATENATE(SUM(ipl_ball_by_ball_2008_2022[iswicket_delivery]), " Wickets")
+
+-- Bowling Strike Rate
+Bowling SR = COUNT(ipl_ball_by_ball_2008_2022[bowler]) / SUM(ipl_ball_by_ball_2008_2022[iswicket_delivery])
+
+-- Economy Rate
+Economy = DIVIDE(
+    SUMX(
+        FILTER(
+            ipl_ball_by_ball_2008_2022,
+            ipl_ball_by_ball_2008_2022[extra_type] <> "legbyes" &&
+            ipl_ball_by_ball_2008_2022[extra_type] <> "byes"
+        ),
+        ipl_ball_by_ball_2008_2022[total_run]
+    ),
+    (COUNT(ipl_ball_by_ball_2008_2022[overs])) / 6
+)
+
+-- Strike Rate for Batsman
+Strike Rate for Batsman = (SUM(ipl_ball_by_ball_2008_2022[batsman_run]) / COUNT(ipl_ball_by_ball_2008_2022[ball_number])) * 100
+
+-- Matches won based on toss decision
+Matches won based on toss decision = CALCULATE(
+    COUNTROWS(ipl_matches_2008_2022),
+    ipl_matches_2008_2022[toss_winner] = ipl_matches_2008_2022[winning_team]
+)
+
+-- Title Winner
+Title Winner = 
+VAR max_date = CALCULATE(
+    MAX('Calender Date'[Date]),
+    ALLSELECTED(ipl_matches_2008_2022),
+    VALUES(ipl_matches_2008_2022)
+)
+VAR title_winner = CALCULATE(
+    SELECTEDVALUE(ipl_matches_2008_2022[winning_team]),
+    'Calender Date'[Date] = max_date
+)
+RETURN title_winner
+  </pre>
+
+						<script>
+							const btn = document.getElementById('toggleDAXBtn');
+							const daxContent = document.getElementById('daxQueries');
+
+							btn.addEventListener('click', (e) => {
+								e.preventDefault(); // Prevent page jump because of href="#"
+								if (daxContent.style.display === 'none') {
+									daxContent.style.display = 'block';
+									btn.textContent = 'Click here to hide complete DAX Queries ▲';
+								} else {
+									daxContent.style.display = 'none';
+									btn.textContent = 'Click here to view complete DAX Queries ▼';
+								}
+							});
+						</script>
+
+
+						<h3 class="major"></h3>
+						<h2>📦 Key Deliverables</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>A complete end-to-end IPL Dashboard solution in Power BI.</li>
+							<li>Year-wise Title Winner, Orange Cap, and Purple Cap insights.</li>
+							<li>Tournament-level KPIs – total 6’s, 4’s, and matches played.</li>
+							<li>Dynamic Batting and Bowling Stats filtered by player.</li>
+							<li>Toss Decision Analysis with win percentages.</li>
+							<li>Visualizations of Match Wins by Venue, Result Type, and Team Wins per Season.</li>
+							<li>Custom-styled dashboard using Sporty Retro color palette for aesthetic clarity.</li>
+							<li>Cricket-themed visuals and slicers to enhance interactivity.</li>
+						</ul>
+						<br>
+
+						<a href="https://github.com/JPudota/ipl_dashboard" class="special" target="_blank">See
+							Code
+							here!</a>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!--
+    - custom js link
+  -->
+
+
+	<!--
+    - ionicon link
+  -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<script>
+   const images = [
+      "assets/images/ipl_dashboard/ipldashboard.png",
+      "assets/images/ipl_dashboard/ipl_modelview.png"
+
+
+    ];
+    const captions = [
+      "Complete Power BI dashboard showcasing IPL insights from 2008 to 2022.",
+      "Power BI model view showing table relationships in the IPL dataset."
+    ];
+
+
+		let currentIndex = 0;
+
+		function changeSlide(direction) {
+			currentIndex = (currentIndex + direction + images.length) % images.length;
+			document.querySelector(".carousel-image").src = images[currentIndex];
+			document.querySelector(".carousel-caption").textContent = captions[currentIndex];
+		}
+
+		// Ensure the first image is displayed initially
+		document.querySelector(".carousel-image").src = images[currentIndex];
+
+
+	</script>
+
+</body>
+
+</html>

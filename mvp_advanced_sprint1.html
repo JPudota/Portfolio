@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Project 6</h2>
+					<h3>Property Analysis: Data Warehousing & ETL Implementation || SSIS, SQL Server, Visual Studio</h3>
+					<p></p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+
+					<h3 class="major"></h3>
+					<h2>🎯 Objective</h4>
+						<p>To design and implement a scalable ETL pipeline and dimensional data warehouse that supports
+							location, property, rental, crime, and school data integration using best practices in data
+							engineering and modeling.</p>
+
+						<div class="carousel-container"
+							style="max-width: 700px; margin: 2rem auto; position: relative;">
+							<img class="carousel-image" src="assets/images/advanced1/ETL_Load_Stage.png"
+								style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
+							<p class="carousel-caption" style="text-align: center; margin-top: 10px;">End-to-End SSIS
+								ETL Pipeline from
+								raw source to Star schema.
+							</p>
+
+							<button class="carousel-btn left" onclick="changeSlide(-1)"
+								style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❮</button>
+							<button class="carousel-btn right" onclick="changeSlide(1)"
+								style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❯</button>
+						</div>
+
+						<h3 class="major"></h3>
+						<h2>🧠 Project Overview</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Developed a complete SSIS-based ETL solution to extract, transform, and load
+								multi-source datasets into a
+								Star Schema data warehouse, enabling structured, analytics-ready storage of property and
+								public service
+								data.</li>
+							<li><strong>Tools Used:</strong> SQL Server | SSIS | Visual Studio</li>
+							<li><strong>Techniques:</strong> ETL, Star Schema, Factless Fact Tables, Degenerate
+								Dimensions, Data
+								Warehousing</li>
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>🔧 What I Did</h2>
+
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Extracted data from multiple Excel files into load_* and stage_* tables using SSIS.
+							</li>
+							<li>Applied business transformations with Derived Columns, Conditional Splits, and
+								Lookups.</li>
+							<li>Modeled a Star Schema with fact and factless fact tables.</li>
+							<li>Composite primary key creation at staging level (State_code + Suburb) for
+								uniqueness.</li>
+							<li>Defined degenerate dimensions for fields like RentalHouseType, Offence Category,
+								Offence Sub-Category,
+								and derived value categories.</li>
+							<li>Final cleaned data was loaded into Dim_* and Fact_* tables structured in a Star
+								schema.</li>
+
+						</ul>
+
+						<h3 class="major"></h3>
+						<h2>📋 Tables Created</h2>
+
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Dimension tables: <code>DimSuburb</code>, <code>DimSchool</code>,
+								<code>DimTransport</code>
+							</li>
+							<li>Factless Fact tables: <code>FactlessFact_School</code>,
+								<code>FactlessFact_Transport</code>
+							</li>
+							<li>Fact tables: <code>FactCrime</code>, <code>FactHouseValue</code>,
+								<code>FactRentalValue</code>
+							</li>
+						</ul>
+
+
+						<h3 class="major"></h3>
+						<h2>📦 Key Deliverables</h2>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>Complete multi-stage ETL pipeline from raw data to dimensional model.</li>
+							<li>Structured raw data into a Star Schema model to support analytical reporting.</li>
+							<li>Categorized House Value, Rental Value, and Crime Recorded Incidents data using Derived
+								Columns.</li>
+							<li>Integrated degenerate dimensions and factless fact tables for flexible querying.</li>
+							<li>Clean, query-ready data warehouse prepared for BI consumption.</li>
+						</ul>
+
+						<br><br>
+
+
+						<a href="https://github.com/JPudota/Australia_Property_Analysis" class="special"
+							target="_blank">See
+							Code
+							here!</a>
+
+
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+	<!--
+    - custom js link
+  -->
+
+
+	<!--
+    - ionicon link
+  -->
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<script>
+		const images = [
+			"assets/images/advanced1/ETL_Load_Stage.png",
+			"assets/images/advanced1/ETL_Dim_Fact.png",
+			"assets/images/advanced1/Success_ETL_Load_Stage.png",
+			"assets/images/advanced1/Success_ETL_Dim_Fact.png",
+			"assets/images/advanced1/DBdiagram_Star.png"
+		];
+		const captions = [
+			"SSIS ETL Pipeline: Data flow from source files to Load and Stage tables.",
+			"SSIS Data Load: Populating Dimension, Fact, and Factless Fact tables from Stage layer",
+			"Successful Data Load Pipeline: Extract and Transform from Source to Stage.",
+			"Star Schema Load: Successfully Loaded Dimension, Fact, and Factless Fact Tables.",
+			"Database Schema Design: Dimension and Fact Table Relationships."
+		];
+
+
+
+		let currentIndex = 0;
+
+		function changeSlide(direction) {
+			currentIndex = (currentIndex + direction + images.length) % images.length;
+			document.querySelector(".carousel-image").src = images[currentIndex];
+			document.querySelector(".carousel-caption").textContent = captions[currentIndex];
+		}
+
+		// Ensure the first image is displayed initially
+		document.querySelector(".carousel-image").src = images[currentIndex];
+
+
+	</script>
+
+</body>
+
+</html>

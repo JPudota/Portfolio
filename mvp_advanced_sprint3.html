@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+    <title>Data Analyst Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+
+<body class="is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+            <nav>
+                <a href="#menu">Menu</a>
+            </nav>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <div class="inner">
+                <h2>Menu</h2>
+                <ul class="links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
+                <a href="#" class="close">Close</a>
+            </div>
+        </nav>
+
+        <!-- Wrapper -->
+        <section id="wrapper">
+            <header>
+                <div class="inner">
+                    <h2>Project 8</h2>
+                    <h3>Property Analysis: Power BI Dashboard & Visualization || Power BI, DAX, Power Query</h3>
+                    <p></p>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="wrapper">
+                <div class="inner">
+
+                    <h3 class="major"></h3>
+                    <h2>🎯 Objective</h4>
+                        <p>To develop an interactive Power BI dashboard that enables stakeholders to analyze and compare
+                            real estate
+                            and infrastructure metrics—such as house prices, rental values, school availability,
+                            transport
+                            accessibility, and crime incidents—across suburbs, cities, and states. The goal is to
+                            support data-driven
+                            decision-making for property investors, city planners, and home buyers.</p>
+
+                        <div class="carousel-container"
+                            style="max-width: 700px; margin: 2rem auto; position: relative;">
+                            <img class="carousel-image" src="assets/images/advanced3/Summary.png"
+                                style="max-width: 100%; max-height: 400px; object-fit: contain; display: block; margin: 0 auto; border-radius: 10px;" />
+                            <p class="carousel-caption" style="text-align: center; margin-top: 10px;">Summary Dashboard
+                                – Property
+                                Analysis Dashboard Overview.
+                            </p>
+
+                            <button class="carousel-btn left" onclick="changeSlide(-1)"
+                                style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❮</button>
+                            <button class="carousel-btn right" onclick="changeSlide(1)"
+                                style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 1rem; cursor: pointer; padding: 2px 6px; border-radius: 4px;">❯</button>
+                        </div>
+
+                        <h3 class="major"></h3>
+                        <h2>🧠 Project Overview</h2>
+                        <ul style="list-style-type: disc; padding-left: 40px;">
+                            <li>This project delivers a comprehensive multi-page Power BI dashboard using data imported
+                                from a structured
+                                data warehouse. Each page focuses on a specific domain—House Value, Rental, Schools,
+                                Transport, and
+                                Crime—with tailored visuals and KPIs. A centralized Summary page provides cross-domain
+                                insights with
+                                drill-through to detail pages, while an Overview (Home) page enables image-based
+                                navigation.</li>
+                            <li>By integrating multiple datasets and dimension tables, this report provides an
+                                end-to-end real estate
+                                intelligence solution at suburb-level granularity.</li>
+                            <li><strong>Tools Used:</strong> Power BI Desktop | SQL Server | DAX (Data Analysis
+                                Expressions) | Power Query
+                            </li>
+                            <li><strong>Techniques:</strong> Dimensional Modeling, Drillthrough Navigation, KPI Cards,
+                                Hierarchical
+                                Filtering, Top N & Distribution Analysis, Bucketization, Highlighting Gaps, Custom Color
+                                Palette</li>
+                        </ul>
+
+                        <h3 class="major"></h3>
+                        <h2>🔧 What I Did</h2>
+                        <ul style="list-style-type: disc; padding-left: 40px;">
+                            <li>Imported and modeled data from SQL-based data warehouse.</li>
+                            <li>Designed page-level analysis for each domain (House, Rental, Crime, School, Transport).
+                            </li>
+                            <li>Created custom DAX measures for KPI cards.</li>
+                            <li>Built dynamic visuals by suburb, city, and state.</li>
+                            <li>Implemented category-based distribution charts and Top N comparisons.</li>
+                            <li>Designed a Summary page for high-level insights with drill-through to detail pages.</li>
+                            <li>Created a Home (Overview) page using visual tiles for intuitive navigation.</li>
+                            <li>Applied a cohesive custom color theme to enhance user experience and brand consistency.
+                            </li>
+                        </ul>
+
+                        <h3 class="major"></h3>
+                        <h2>📋 Tables Used</h2>
+                        <code>DimSuburb</code>, <code>DimSchool</code>, <code>DimTransport</code>,
+                                <code>FactCrime</code>, <code>FactHouseValue</code>, <code>FactRentalValue</code>,
+                                <code>FactlessFact_School</code>, <code>FactlessFact_Transport</code>
+
+                        <h3 class="major"></h3>
+                        <h2>📦 Key Deliverables</h2>
+                        <ul style="list-style-type: disc; padding-left: 40px;">
+                            <li>Designed 5 dedicated analysis pages for House Value, Rental Value, Crime, Schools, and
+                                Transport</li>
+                            <li>Implemented KPI cards showing Min, Max, Avg, and Count metrics for each domain.</li>
+                            <li>Created interactive slicers for State, City, and Suburb filtering across all pages.</li>
+                            <li>Developed Top 5 visualizations for suburbs by average value, crime incidents, school
+                                count, and transport stops.</li>
+                            <li>Built distribution charts for House Value and Rental Amount categories.</li>
+                            <li>Highlighted data gaps such as suburbs with no schools or transport stops.</li>
+                            <li>Built a Summary page consolidating KPIs and key visuals across domains.</li>
+                            <li>Enabled drill-through navigation from Summary to individual analysis pages using suburb.
+                            </li>
+                            <li>Designed a Home (Overview) page with clickable image tiles for intuitive navigation.
+                            </li>
+                            <li>Applied a custom color palette consistent with all visuals for a polished and cohesive
+                                dashboard.</li>
+                        </ul>
+
+                        <br><br>
+
+
+                        <a href="https://github.com/JPudota/Australia_Property_Analysis" class="special"
+                            target="_blank">See
+                            Code
+                            here!</a>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+            <div class="inner">
+                <h2 class="major">Get in touch</h2>
+                <p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+                <ul class="contact">
+                    <li class="icon solid fa-home">
+                        Auckland, New Zealand<br />
+
+                    </li>
+
+                    <li class="icon solid fa-envelope"><a
+                            href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+                    <li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+                    <li class="icon brands fa-linkedin-in"><a
+                            href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; Portfolio. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!--
+    - custom js link
+  -->
+
+
+    <!--
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const images = [
+            "assets/images/advanced3/Summary.png",
+            "assets/images/advanced3/HouseValue.png",
+            "assets/images/advanced3/RentalAmount.png",
+            "assets/images/advanced3/Crime.png",
+            "assets/images/advanced3/School.png",
+            "assets/images/advanced3/Transport.png",
+            "assets/images/advanced3/modelview_pbi.png"
+        ];
+        const captions = [
+            "Summary Dashboard – Property Analysis Dashboard Overview.",
+            "House Price Trends by Suburb, City, State.",
+            "Rental Value Analysis – Distribution & Suburb-Level Insights.",
+            "Crime Incident Analysis – Recorded Cases by Location.",
+            "School Analysis – School Types and Distribution.",
+            "Transport Access Analysis – Stops by Suburb, City, and State.",
+            "Power BI Data Model – Star Schema Linking Facts and Dimensions."
+        ];
+
+
+
+
+        let currentIndex = 0;
+
+        function changeSlide(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.querySelector(".carousel-image").src = images[currentIndex];
+            document.querySelector(".carousel-caption").textContent = captions[currentIndex];
+        }
+
+        // Ensure the first image is displayed initially
+        document.querySelector(".carousel-image").src = images[currentIndex];
+
+
+    </script>
+
+</body>
+
+</html>

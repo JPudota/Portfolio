@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+
+					<h2>Blog 2</h2>
+					<h3>Exploring New Zealand Crash Data: A Real-World Data Analysis Project</h3>
+					<p></p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+					<p>I was on the lookout for a unique project to showcase in my data portfolio — something that is
+						interesting.
+						That’s when I stumbled across the NZTA Open Data Portal. Among the many datasets, the Crash
+						Analysis System
+						caught my eye.
+						The idea of using real-world crash data to uncover patterns and maybe even contribute to road
+						safety
+						conversations felt both important and interesting. So, I downloaded the dataset and decided to
+						see what
+						stories our roads have been telling — using Python, a Jupyter notebook, and a lot of curiosity.
+					</p>
+
+					<h3 class="major"></h3>
+					<h2>📂 Getting the Data Ready</h2>
+
+					<p>
+						To get started, I downloaded the crash data directly from NZTA’s open data portal.<br>
+						(https://opendata-nzta.opendata.arcgis.com) <br>
+						I used the CSV file updated on <strong>7th July 2025</strong>, which contains a massive
+						<strong>885,184
+							records</strong>.
+					</p>
+
+					<p>
+						The dataset includes a lot of details — everything from the time and location of each crash to
+						road
+						conditions, environmental factors, vehicle movements, and more.
+						Naturally, the first thing I did was load the data into Pandas and run a few quick checks like
+						<code>.shape</code>, <code>.head()</code>, and <code>.info()</code> just to get a feel for what
+						I was working
+						with.
+					</p>
+
+					<p>
+						As with most real-world datasets, not all columns were useful for the kind of analysis I had in
+						mind. Many of
+						them were IDs, repetitive codes, or too specific (things like <code>OBJECTID</code>,
+						<code>X</code>,
+						<code>Y</code>, <code>meshblockId</code>, and so on).
+					</p>
+
+					<p>One major advantage of this dataset is the comprehensive field descriptions provided on the NZTA
+						portal, which
+						made it easier to decide which columns to drop.
+					</p>
+
+					<p>
+						So, I did a bit of cleanup using <code>df.drop()</code> — narrowing it down to the columns that
+						could actually
+						help tell a story. I focused on fields like
+						<strong>crash severity</strong>, <strong>region</strong>, <strong>weather conditions</strong>,
+						<strong>time of
+							day</strong>, and <strong>vehicle movement</strong>.
+					</p>
+
+					<h3 class="major"></h3>
+					<h2>🧼 Cleaning Up</h2>
+					The dataset was relatively clean, but I still had to:
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>Drop irrelevant or highly sparse columns</li>
+						<li>Handle any missing values if necessary (mostly negligible in this dataset)</li>
+						<li>Convert certain columns like dates or categorical codes into more readable formats</li>
+					</ul>
+					<p>This step is like prepping ingredients before cooking — it makes the rest of the process much
+						smoother.
+					</p>
+
+					<h3 class="major"></h3>
+					<h2>📊 Let’s Visualize</h2>
+					<h3>🚨 Crash Severity Counts</h3><br>
+					<p>
+						I started with a simple countplot of crash severity levels. This gave a clear snapshot of how
+						many crashes
+						were minor vs. serious or fatal.
+						Unsurprisingly, <strong>non-injury and minor-injury crashes made up the bulk</strong> — but the
+						number of
+						fatal crashes was still significant.
+					</p>
+					<img src="assets/images/crash_system/crash_severity_plot.png" alt="Crash Severity Countplot"
+						width="700" style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>📅 Crashes by Year</h3>
+					<p>
+						Next, I wanted to understand how crash volumes have changed over time — so I plotted the number
+						of crashes per
+						year.
+						This gave a nice visual trend of the highs and lows across the dataset. There is interesting
+						cyclical
+						behaviour. Obviously the 2025 year is incomplete, so we do not take that in account.
+						As you can see, some years like <strong>2007, 2008 and 2017 saw the highest number of
+							crashes</strong>, while
+						the numbers have gradually dipped in more recent years — particularly post-2020.
+					</p>
+					<img src="assets/images/crash_system/crash_count_year.png" alt="Crashes by Year Plot"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;"><br>
+
+
+					<h3>☁️ Weather Conditions During Crashes</h3>
+					<p> I was curious how much weather actually plays a role in crashes — like, do more crashes really
+						happen when
+						it’s rainy or foggy? So I plotted the
+						data to see what weather conditions were most common during crash events. </p>
+
+					<p> Turns out, most crashes actually happened in <strong>fine weather — over 685,000 of
+							them!</strong> At first
+						that felt counter intuitive,
+						but then I realized most people drive in good weather, so statistically, more crashes are just
+						likely to
+						happen then. Still, there were a
+						substantial number of crashes during <strong>light rain (133k)</strong> and even <strong>heavy
+							rain
+							(35k)</strong>, which makes sense —
+						wet roads can easily lead to poor control or longer stopping distances. </p>
+
+					<p> Less frequent weather types like <strong>fog, snow, and hail</strong> had much lower counts, but
+						they’re
+						still worth noting. Even though those
+						conditions aren’t common, they clearly still pose risk when they do happen. </p>
+
+					<img src="assets/images/crash_system/crash_count_weather.png" alt="Crashes by Weather Conditions"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>🌗 Crash Severity vs. Light Conditions</h3>
+					<p> Next, I wanted to understand whether light conditions — like daylight vs. darkness — had any
+						noticeable
+						impact on the severity of crashes.
+						So I created a visualization comparing <strong>crash severity levels across different lighting
+							conditions</strong> (things like bright sun,
+						overcast, dark, twilight, etc.). </p>
+
+					<p> Unsurprisingly, the majority of crashes occurred in <strong>daylight conditions (either bright
+							sun or
+							overcast)</strong>,
+						simply because that’s when most people are out on the roads. But what stood out more was the
+						higher proportion
+						of <strong>serious
+							and fatal crashes in darker conditions</strong>.
+						Even though fewer people drive at night or during twilight, those crashes tended to be more
+						severe — possibly
+						due to reduced visibility or
+						slower reaction times. </p>
+					<p> There was also a small chunk of data where light conditions were marked as "Unknown." While it’s
+						a tiny
+						portion, it’s another reminder that real-world datasets often come with a few gaps or
+						inconsistencies. </p>
+
+
+					<img src="assets/images/crash_system/crash_severity_light.png"
+						alt="Crash Severity vs Light Conditions"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>📍 Top 10 Regions with the Most Crashes</h3>
+					<p> To get a sense of where crashes are most concentrated, I looked at the total number of crashes
+						by region and
+						pulled out the top 10.
+						As you might guess, <strong>Auckland topped the list by a huge margin</strong>. With over
+						300,000 crashes,
+						it’s clear that population density a
+						nd traffic volume are major contributing factors. </p>
+
+					<p> Regions like <strong>Waikato, Canterbury, Wellington, and Bay of Plenty</strong> also made the
+						list, each
+						with tens of thousands of reported
+						crashes. These are areas with significant road networks and a mix of urban and rural driving
+						environments —
+						which likely adds to the risk. </p>
+
+					<p> The chart below gives a quick snapshot of how the top regions compare. While some differences
+						are expected
+						based on size and population, it's still helpful to see how heavily skewed crash data can be
+						geographically.
+					</p>
+
+					<img src="assets/images/crash_system/crash_severity_region.png" alt="Top 10 Regions"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>🧭 Digging into Auckland: A Missed Opportunity</h3>
+					<p> After seeing that Auckland had the highest number of crashes overall, I was curious to dig
+						deeper —
+						specifically, <strong>which parts of
+							Auckland were seeing the most incidents?</strong> To explore this, I filtered the data to
+						look at the top 10
+						sub-regions
+						(or TLA areas) within Auckland. </p>
+					<p> Unfortunately, the data hit a bit of a snag here. The <code>tlaName</code> field — which should
+						have
+						contained detailed sub-region names —
+						mostly just said <strong>"Auckland"</strong> across the board. So instead of seeing specific
+						areas like
+						Manukau, Waitematā, or
+						North Shore, the chart ended up showing just one aggregated value. </p>
+
+					<p> It’s a good reminder that <strong>even open datasets come with limitations</strong>. Sometimes
+						the fields
+						you expect to be rich in detail
+						aren’t as granular as you'd like, and that can cut an analysis short. Still, it was worth
+						checking — and it’s
+						always useful to call these
+						things out in a project. </p><br>
+
+					<h3>🚗 Vehicle Types and Crash Severity</h3>
+					<p> One of the more insightful breakdowns I was curious about was how different <strong>types of
+							vehicles were
+							involved in crashes</strong> — and
+						more importantly, how those crashes varied in severity. </p>
+
+					<p> To do this, I reshaped the data so I could look at vehicle types side-by-side with crash
+						severity levels.
+						The resulting chart compares how often each type of vehicle was involved in fatal, serious,
+						minor, or
+						non-injury crashes. </p>
+
+					<p> Not surprisingly, <strong>cars,station wagons, and SUV's</strong> had the highest numbers
+						overall — they
+						make up most of the traffic, after all.
+						But a few things stood out: </p>
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li><strong>Motorcycles and bicycles</strong> had noticeably higher proportions of serious and
+							fatal crashes compared to other vehicle types, which aligns with what we know about rider
+							vulnerability.
+						</li>
+						<li><strong>Trucks and vans</strong> also had a significant number of crashes, including a
+							sizable chunk of
+							serious and fatal ones.
+							I’m guessing their size and weight make collisions more dangerous.</li>
+
+						<li><strong>Buses and school buses</strong> were involved far less frequently, but it’s still
+							important to see
+							how those numbers look
+							given the number of passengers they carry.</li>
+					</ul>
+
+					<p> Overall, this visualization added another layer of context — showing not just what vehicles were
+						involved,
+						but what the consequences
+						tended to look like depending on the type.
+
+						<img src="assets/images/crash_system/crash_severity_vehicletype.png" alt="Vehicle Types"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<br>
+
+					<h3>📍 Crash Severity Across Top 10 Regions</h3>
+					<p> To get a deeper understanding of regional road safety, I broke down crash severity across the
+						top 10 regions
+						with the most reported crashes.
+						Unsurprisingly, <strong>Auckland led the list</strong> by a wide margin — not just in overall
+						crashes, but
+						also in each severity category.
+						This likely reflects its population size and vehicle density. </p>
+					<p> However, other regions like <strong>Waikato, Canterbury, and Wellington</strong> also showed
+						significantly
+						high numbers, particularly for
+						minor and non-injury crashes. Waikato stood out with over <strong>1,500 fatal crashes</strong>,
+						which was
+						notably higher than even some
+						more populated regions. </p>
+					<p> This view helped highlight which regions may need more targeted safety interventions — whether
+						that’s better
+						infrastructure,
+						awareness campaigns, or stricter enforcement depending on the local context. </p>
+
+					<img src="assets/images/crash_system/top10_regions_crash_severity.png"
+						alt="Crash severity by top 10 regions"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+
+					<h3>💀 Fatal Crashes by Region</h3>
+
+					<p> I plotted a line chart showing the number of <strong>fatal crashes by region</strong>.
+						This gave a focused view of where the most tragic incidents are happening across the country.
+					</p>
+					<p> The results were quite striking. <strong>Waikato</strong> topped the list with over
+						<strong>1,500 fatal
+							crashes</strong>,
+						followed by <strong>Auckland</strong> and <strong>Canterbury</strong>.
+						This was interesting, especially because Auckland, despite having more total crashes, had fewer
+						fatal ones
+						than Waikato.
+						This could point to differences in road conditions, speed zones, or emergency response times.
+					</p>
+
+					<p> As we move down the list, we see regions like <strong>West Coast, Marlborough, and
+							Gisborne</strong>
+						recording lower fatal crash counts —
+						but that doesn’t mean these areas are “safe.” These numbers also correlate with population size
+						and traffic
+						volume,
+						so it’s important to interpret them in context. </p>
+
+					<img src="assets/images/crash_system/fatal_crashes_by_region_lineplot.png"
+						alt="Line plot of fatal crashes by regions"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<br>
+
+					<h3 class="major"></h3>
+					<h2>📝 Final Thoughts</h2>
+					<p> Exploring this crash data turned out to be more insightful than I expected. It started as a
+						portfolio
+						experiment, but diving into the numbers
+						revealed patterns around regions, weather, light conditions, and vehicle types that really made
+						me reflect on
+						how many factors play a role in
+						road safety.</p>
+						<p>While there's still room to explore — like diving into predictive modeling or spatial heatmaps —
+						this analysis
+						already shows how much we can uncover from open crash data. I'm glad I followed this idea
+						through.. </p>
+
+					<a href="https://github.com/JPudota/crash_data_analysis" class="special" target="_blank">See
+						Code
+						here!</a>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
