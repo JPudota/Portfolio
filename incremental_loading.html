@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<!--
+	Data Analyst Portfolio
+	pudotajayasri@gmail.com
+-->
+<html>
+
+<head>
+	<title>Data Analyst Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">DATA ANALYST PORTFOLIO</a></h1>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<div class="inner">
+				<h2>Menu</h2>
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="aboutme.html">About Me</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="resume.html">Resume</a></li>
+
+					<li><a href="#footer">Contact</a></li>
+				</ul>
+				<a href="#" class="close">Close</a>
+			</div>
+		</nav>
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+
+					<h2>Blog 3</h2>
+					<h3>Incremental Loading with Lookup in SSIS (Step by Step)</h3>
+					<p></p>
+				</div>
+			</header>
+
+			<!-- Content -->
+			<div class="wrapper">
+				<div class="inner">
+					<p>When working with data warehouses, handling <strong>Slowly Changing Dimensions (SCD) </strong>
+						and <strong>incremental loading
+						</strong>is one of the most common challenges. Recently, I implemented this using <strong>SSIS
+							(SQL Server Integration Services)
+						</strong>and for demonstration, I used a <strong>simple customer table example</strong> to
+						illustrate the process step by step.
+					</p>
+					This blog covers:
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>Initial load of data into destination</li>
+						<li>Handling <strong>SCD Type 1</strong> (overwrite updates for non-historical fields)</li>
+						<li>Handling <strong>SCD Type 2</strong> (track history with effective dates and current flag)
+						</li>
+						<li>Using <strong>Row Count Transformation</strong> to validate inserted/updated records</li>
+					</ul>
+
+					<h3 class="major"></h3>
+					<h2>Step 1: Source & Destination Setup</h2>
+					I started with a simple Customer table for demonstration:<br><br>
+					<strong>Source Table:</strong> <code>Customer_Source </code> (only business data, no history
+					tracking)
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>CustomerID</li>
+						<li>CustomerName</li>
+						<li>Email</li>
+						<li>Phone</li>
+						<li>Address</li>
+					</ul>
+
+					<strong>Destination Table:</strong> <code>Customer_Destination </code> (designed for SCD Type 1 &
+					Type 2)
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>CustomerID</li>
+						<li>CustomerName</li>
+						<li>Email</li>
+						<li>Phone</li>
+						<li>Address</li>
+						<li>EffectiveDate</li>
+						<li>EndDate</li>
+						<li>CurrentFlag</li>
+					</ul>
+
+					<img src="assets/images/incremental_loading/source.jpg" alt="Customer_Source table" width="700"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+					<br>
+					<img src="assets/images/incremental_loading/dest.jpg" alt="Customer_Destination table" width="700"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 2: Data Flow Overview</h2>
+					The ETL package follows this flow:
+					<ol style="padding-left: 40px;">
+						<li>Extract records from Customer_Source</li>
+						<li>Row Count Transformation → Count extracted records</li>
+						<li>Lookup Transformation → Match records with Customer_Destination</li>
+						<li>Conditional Split → Separate into:</li>
+						<ul style="list-style-type: disc; padding-left: 40px;">
+							<li>New Rows (not found in destination)</li>
+							<li>Type 1 Updates (non-historical changes → Email/Phone)</li>
+							<li>Type 2 Updates (historical changes → Address)</li>
+						</ul>
+						<li>Load into Destination using OLE DB Command / OLE DB Destination</li>
+					</ol>
+					<img src="assets/images/incremental_loading/SSIS_DF.jpg" alt="SSIS Complete DataFlow" width="700"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 3: Lookup Transformation</h2>
+					I used a Lookup against the destination to check if a record already exists.<br>
+					Lookup Query:
+					<pre style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+SELECT CustomerID, CustomerName, Email, Phone, Address
+FROM dbo.Customer_Destination
+WHERE CurrentFlag = 1;
+</code>
+</pre>
+					Renamed lookup columns with LK_ prefix for clarity.
+					<img src="assets/images/incremental_loading/lookup.jpg" alt="Lookup Transformation Editor"
+						width="700" style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 4: Conditional Split Logic</h2>
+					I defined three outputs based on comparison with lookup values:<br>
+					<strong>New Rows</strong>
+					<pre style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+ISNULL(LK_CustomerID)
+</code>
+</pre>
+
+					<strong>Type 1 Updates (Overwrite fields like Email/Phone)</strong>
+					<pre style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+!ISNULL(LK_CustomerID) && (Email != LK_Email || Phone != LK_Phone)
+</code>
+</pre>
+
+					<strong>Type 2 Updates (Maintain history for Address)</strong>
+					<pre style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+!ISNULL(LK_CustomerID) && (CustomerName != LK_CustomerName || Address != LK_Address)
+</code>
+</pre>
+					<img src="assets/images/incremental_loading/conditions.jpg" alt="Conditional Split"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 5: Handling New Rows</h2>
+					For <strong>new rows</strong>, I used a <strong>Derived Column</strong> to set history tracking
+					fields:
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li>EffectiveDate = GETDATE()</li>
+						<li>EndDate = NULL</li>
+						<li>CurrentFlag = 1</li>
+					</ul>
+					Then, insert directly into <code>Customer_Destination</code>.
+
+					<img src="assets/images/incremental_loading/derived_column.jpg" alt="New Records Derived Column"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 6: Handling SCD Type 1 Updates</h2>
+					For <strong>Type 1 changes,</strong>, I used an <strong>OLE DB Command</strong> with the query
+					<pre style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+UPDATE Customer_Destination SET Email = ?, Phone =? WHERE CustomerID = ? AND CurrentFlag =1 
+</code>
+</pre>
+					<img src="assets/images/incremental_loading/type1SQL.jpg" alt="Type 1 Update OLE DB Command"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 7: Handling SCD Type 2 Updates</h2>
+					For <strong>Type 2 changes,</strong>, I performed two steps:
+					<ol style="padding-left: 40px;">
+						<li><strong>Expire old record:</strong></li>
+						<pre
+							style="padding:10px; border-radius:5px; overflow-x: hidden; text-align: left; margin: -2px 0;">
+						<code>
+UPDATE Customer_Destination
+SET EndDate = GETDATE(), CurrentFlag = 0
+WHERE CustomerID = ? AND CurrentFlag = 1;	
+</code>
+</pre>
+						<img src="assets/images/incremental_loading/type2SQL.jpg" alt="Type 1 Update OLE DB Command"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<li><strong>Insert new record</strong> with updated values + Derived Columns
+							(<code>EffectiveDate = GETDATE(), EndDate = NULL, CurrentFlag = 1).</code>
+						</li>
+					</ol>
+					<img src="assets/images/incremental_loading/derived_column.jpg" alt="Type 1 Update OLE DB Command"
+						style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					<h3 class="major"></h3>
+					<h2>Step 8: Testing the Package</h2>
+					Here’s how I tested using the simple Customer example:
+					<ul style="list-style-type: disc; padding-left: 40px;">
+						<li> <strong>Initial Load</strong> → All records inserted as new with <code>EffectiveDate</code>
+							set, <code>EndDate</code> NULL, <code>CurrentFlag = 1.</code></li>
+						<img src="assets/images/incremental_loading/initial_load.jpg" alt="SSIS Initial Load"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/initial_load1.jpg"
+							alt="Customer_Destination Initial Load"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<li>Update Email/Phone in source → SCD Type 1 worked, old row overwritten.</li>
+						<img src="assets/images/incremental_loading/type1source.jpg" alt="Customer_Source Type 1"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/SSIStype1.jpg" alt="SSIS Type 1"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/SSIStype1Dest.jpg" alt="Customer_Destination Type 1"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<li><strong>Update Address</strong> in source → SCD Type 2 worked, old row expired (EndDate
+							populated, CurrentFlag = 0) and new row inserted.</li>
+						<img src="assets/images/incremental_loading/type2source.png" alt="Customer_Source Type 2"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/type2sourcedest.png"
+							alt="Customer_Source & Customer_Destination"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/type2SSIS.png" alt="SSIS package type 2"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+						<img src="assets/images/incremental_loading/type2Dest.jpg" alt="SSIS package type 2"
+							style="display: block; margin: 20px auto; max-width: 90%; border: 1px solid #ccc;">
+
+					</ul>
+
+					<h3 class="major"></h3>
+					<h2>Final Thoughts</h2>
+					<p>Working with Slowly Changing Dimensions can feel intimidating at first, but once you break it
+						down step by step, the process becomes much clearer.
+						In this example, I deliberately kept the customer table simple so the focus stays on the logic
+						of incremental loading.</p>
+					<p>The key takeaway is that SSIS gives us the flexibility to handle both <strong>Type 1 (overwrite updates)</strong>
+						and <strong>Type 2 (historical tracking)</strong> in the same package,
+						depending on business needs. While this demo used a small dataset, the same approach can be
+						scaled up for larger, real-world scenarios.</p>
+					<p>If you’re new to SSIS, I’d recommend starting with a small project like this. Once you’re
+						comfortable with lookup transformations, conditional splits,
+						and handling row counts, you’ll find yourself much more confident in designing robust ETL
+						pipelines for production use.</p>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="inner">
+				<h2 class="major">Get in touch</h2>
+				<p>Bring your data, I’ll bring the analysis — together, we’ll uncover the story.</p>
+				<ul class="contact">
+					<li class="icon solid fa-home">
+						Auckland, New Zealand<br />
+
+					</li>
+
+					<li class="icon solid fa-envelope"><a
+							href="mailto:pudotajayasri@gmail.com">pudotajayasri@gmail.com</a></li>
+					<li class="icon brands fa-github"><a href="https://github.com/JPudota">github.com/JPudota</a></li>
+					<li class="icon brands fa-linkedin-in"><a
+							href="https://www.linkedin.com/in/jayasri-pudota/">linkedin.com/in/jayasri-pudota/</a></li>
+
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Portfolio. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
